@@ -15,6 +15,12 @@ katana -l targets.txt -aff -j -o katana.jsonl
 docker run -v $(pwd):/src secsi/getjs --input /src/targets.txt --complete --output /src/js_links
 katana -u targets.txt -ps -em js,json >> js_links # katana version 1.1.0
 ```
+# Fast Info Gathering
+```
+nuclei -list targets.txt -ai "Extract HTTP title from web pages"
+nuclei -list targets.txt -ai "Extract email addresses from web pages"
+nuclei -list targets.txt -ai "Extract all subdomains referenced in web pages"
+```
 # Low Hanging Fruits
 ```
 nuclei -list targets.txt -ai "Find sensitive information in HTML comments (debug notes, API keys, credentials)"  
