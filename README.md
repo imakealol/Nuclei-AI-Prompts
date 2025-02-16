@@ -100,7 +100,7 @@ docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "F
 
 # SQL Injection (SQLi)
 ```
-nuclei -list katana.jsonl -im jsonl -ai "Perform fuzzing on all parameters and HTTP methods using DSL, focusing on detecting SQL Injection vulnerabilities with pre-conditions."  
+nuclei -list katana.jsonl -im jsonl -ai "Perform fuzzing on all parameters and HTTP methods using DSL, focusing on detecting SQL Injection vulnerabilities with pre-conditions."
 nuclei -list katana.jsonl -im jsonl -ai "Detect SQL error messages indicating SQL injection vulnerabilities"
 nuclei -list katana.jsonl -im jsonl -ai "Detect SQL errors in response when injecting common payloads into GET and POST requests"  
 nuclei -list katana.jsonl -im jsonl -ai "Find SQL injection in 'id', 'user', 'product', 'category', 'page' parameters"  
@@ -142,6 +142,7 @@ nuclei -list katana.jsonl -im jsonl -ai "Check for LFI in error messages exposin
 # Command Injection (RCE)
 ```
 nuclei -list katana.jsonl -im jsonl -ai "Perform fuzzing on all parameters and HTTP methods using DSL, focusing on detecting Remote Code Execution (Command Injection) vulnerabilities with pre-conditions."
+nuclei -list katana.jsonl -im jsonl -ai "Perform fuzzing on all parameters and HTTP methods using DSL, focusing on detecting Remote Code Execution (RCE) vulnerabilities on Linux and Windows."
 nuclei -list katana.jsonl -im jsonl -ai "Detect command injection in 'cmd', 'exec', 'ping', 'query', 'shell' parameters"
 nuclei -list katana.jsonl -im jsonl -ai "Scan for OS command injection via HTTP headers (X-Forwarded-For, X-Forwarded-Host, User-Agent, Referer)"
 nuclei -list katana.jsonl -im jsonl -ai "Identify RCE vulnerabilities in file upload functionalities"
