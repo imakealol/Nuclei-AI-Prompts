@@ -90,6 +90,7 @@ docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "F
 
 # SQL Injection (SQLi)
 ```
+nuclei -list katana.jsonl -ai "Perform fuzzing on all parameters and HTTP methods using DSL, focusing on detecting SQL Injection vulnerabilities with pre-conditions."  
 nuclei -list katana.jsonl -im jsonl -ai "Detect SQL error messages indicating SQL injection vulnerabilities"
 nuclei -list katana.jsonl -im jsonl -ai "Detect SQL errors in response when injecting common payloads into GET and POST requests"  
 nuclei -list katana.jsonl -im jsonl -ai "Find SQL injection in 'id', 'user', 'product', 'category', 'page' parameters"  
@@ -100,6 +101,7 @@ nuclei -list katana.jsonl -im jsonl -ai "Check for SQL injection via HTTP header
 ```
 # Cross-Site Scripting (XSS)
 ```
+nuclei -list katana.jsonl -ai "Perform fuzzing on all parameters and HTTP methods using DSL, focusing on detecting XSS vulnerabilities (Reflected, Stored, and DOM-based) with pre-conditions."
 nuclei -list katana.jsonl -ai "Find reflected XSS in 'q', 'search', 's', 'redirect', 'next', 'return', 'url' parameters"
 nuclei -list katana.jsonl -ai "Find stored XSS in all parameters"
 nuclei -list katana.jsonl -ai "Identify stored XSS in comment fields, usernames, profile descriptions"  
@@ -110,6 +112,7 @@ nuclei -list katana.jsonl -ai "Identify reflected cross-site scripting (XSS) vul
 ```
 # Server-Side Request Forgery (SSRF)
 ```
+nuclei -list katana.jsonl -ai "Perform fuzzing on all parameters and HTTP methods using DSL, focusing on detecting SSRF vulnerabilities with pre-conditions."
 nuclei -list katana.jsonl -ai "Find SSRF vulnerabilities in web applications"
 nuclei -list katana.jsonl -ai "Identify SSRF vulnerabilities in query parameters"
 nuclei -list katana.jsonl -ai "Identify SSRF vulnerabilities in most common parameters"
@@ -120,6 +123,7 @@ nuclei -list katana.jsonl -ai "Scan for blind SSRF by injecting webhooks and ext
 ```
 # Local & Remote File Inclusion (LFI/RFI)
 ```
+nuclei -list katana.jsonl -ai "Perform fuzzing on all parameters and HTTP methods using DSL, focusing on detecting LFI/RFI vulnerabilities with pre-conditions."
 nuclei -list katana.jsonl -ai "Find LFI in 'file', 'path', 'template', 'inc', 'lang', 'page' parameters"
 nuclei -list katana.jsonl -ai "Detect RFI by injecting external URLs into 'file' and 'load' parameters"
 nuclei -list katana.jsonl -ai "Identify LFI using common payloads (/etc/passwd, ../../etc/passwd, php://filter, php://input)"
@@ -131,6 +135,15 @@ nuclei -list katana.jsonl -ai "Perform fuzzing on all parameters and HTTP method
 nuclei -list katana.jsonl -ai "Detect command injection in 'cmd', 'exec', 'ping', 'query', 'shell' parameters"
 nuclei -list katana.jsonl -ai "Scan for OS command injection via HTTP headers (X-Forwarded-For, X-Forwarded-Host, User-Agent, Referer)"
 nuclei -list katana.jsonl -ai "Identify RCE vulnerabilities in file upload functionalities"
+```
+# XXE
+```
+nuclei -list katana.jsonl -ai "Perform fuzzing on all XML-based inputs using DSL, focusing on detecting XXE vulnerabilities with pre-conditions."  
+```
+```
+# Host Header Injection
+```
+nuclei -l targets.txt -ai "Detect Host Header Injection" 
 ```
 # Cloud Security Issues
 ```
