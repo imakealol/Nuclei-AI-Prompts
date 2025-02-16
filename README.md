@@ -17,7 +17,7 @@ katana -u targets.txt -ps -em js,json >> js_links # katana version 1.1.0
 ```
 # Fast Info Gathering
 ```
-nuclei -list targets.txt -ai "Extract HTTP title from web pages"
+nuclei -list targets.txt -ai "Extract page title, detech tech and versions"
 nuclei -list targets.txt -ai "Extract email addresses from web pages"
 nuclei -list targets.txt -ai "Extract all subdomains referenced in web pages"
 ```
