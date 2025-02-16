@@ -144,7 +144,6 @@ nuclei -list katana.jsonl -ai "Identify RCE vulnerabilities in file upload funct
 ```
 nuclei -list katana.jsonl -ai "Perform fuzzing on all XML-based inputs using DSL, focusing on detecting XXE vulnerabilities with pre-conditions."  
 ```
-```
 # Host Header Injection
 ```
 nuclei -l targets.txt -ai "Detect Host Header Injection" 
