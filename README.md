@@ -39,11 +39,9 @@ nuclei -list targets.txt -ai "Detect internal IP addresses (10.x.x.x, 192.168.x.
 nuclei -list targets.txt -ai "Find exposed WordPress debug.log files leaking credentials and error messages"  
 nuclei -list targets.txt -ai "Detect misconfigured CORS allowing wildcard origins ('*')"  
 nuclei -list targets.txt -ai "Find publicly accessible backup and log files (.log, .bak, .sql, .zip)"  
-nuclei -list targets.txt -ai "Identify API keys, JWT tokens, and credentials in JavaScript files"  
-nuclei -list targets.txt -ai "Find exposed admin panels with default credentials"  
-nuclei -list targets.txt -ai "Detect subdomains vulnerable to takeover (CNAME misconfiguration)"  
-nuclei -list targets.txt -ai "Identify API endpoints leaking sensitive user data"  
-nuclei -list targets.txt -ai "Identify web applications with debug mode enabled"
+nuclei -list targets.txt -ai "Find exposed admin panels with default credentials"
+nuclei -list targets.txt -ai "Identify commonly used API endpoints that expose sensitive user data, returning HTTP status 200 OK."
+nuclei -list targets.txt -ai "Detect web applications running in debug mode, potentially exposing sensitive system information."  
 ```
 
 # Advanced Mixed Testing
