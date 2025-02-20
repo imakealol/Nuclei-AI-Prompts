@@ -1,8 +1,8 @@
 # Nuclei-AI-Prompts
 1️⃣ Recon
 ```
-> docker run -v $(pwd):/src projectdiscovery/subfinder:latest -dL /src/domains -silent -o /src/subdomains
-> docker run -v $(pwd):/src projectdiscovery/dnsx:latest -l /src/subdomains -t 500 -retry 5 -silent -o /src/dnsx
+> 
+> 
 > docker run -v $(pwd):/src projectdiscovery/naabu:latest -l /src/dnsx -tp 1000 -ec -c 100 -rate 5000 -o /src/alive_ports
 > docker run -v $(pwd):/src projectdiscovery/httpx:latest -l /src/alive_ports -t 100 -rl 500 -o /src/targets.txt
 ```
@@ -177,3 +177,4 @@ nuclei -list targets.txt -ai "Detect cache poisoning vulnerabilities on Fastly a
 nuclei -list targets.txt -ai "Find misconfigured Varnish caching rules exposing private data, provide additional vulnerability checking (second/third request)"
 nuclei -list targets.txt -ai "Identify Squid proxy cache poisoning vulnerabilitie, provide additional vulnerability checking (second/third request)"
 ```
+sudo
