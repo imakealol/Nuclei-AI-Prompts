@@ -6,7 +6,7 @@
 > docker run -v $(pwd):/src projectdiscovery/naabu:latest -l /src/dnsx -tp 1000 -ec -c 100 -rate 5000 -o /src/alive_ports
 > docker run -v $(pwd):/src projectdiscovery/httpx:latest -l /src/alive_ports -t 100 -rl 500 -o /src/targets.txt
 ```
-2️⃣ Recon (Active + Passive Crawl Links)
+2️⃣ Recon (Active Crawl Links)
 ```
 katana -l targets.txt -aff -j -o katana.jsonl
 ```
