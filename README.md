@@ -3,17 +3,17 @@
 ```bash
 docker run -v $(pwd):/src projectdiscovery/subfinder:latest -dL /src/domains -silent -o /src/subdomains && \
 docker run -v $(pwd):/src projectdiscovery/dnsx:latest -l /src/subdomains -t 500 -retry 5 -silent -o /src/dnsx && \
-docker run -v $(pwd):/src projectdiscovery/naabu:latest -l /src/dnsx -tp 1000 -ec -c 100 -rate 5000 -o /src/alive_ports && \
+docker run -v $(pwd):/src projectdiscovery/naabu:latest -l /src/dnsx -tp 1000 -s s -ec -c 100 -rate 5000 -o /src/alive_ports && \
 docker run -v $(pwd):/src projectdiscovery/httpx:latest -l /src/alive_ports -t 100 -rl 500 -o /src/targets.txt
 ```
 2️⃣ Recon (Active Crawl Links)
 ```bash
-katana -l targets.txt -aff -j -o katana.jsonl
+katana -l targets.txt -aff -jc -iqp -hl -nos -c 50 -p 50 -j -o katana.jsonl
 ```
 3️⃣ Recon (Active + Passive JS Links)
 ```bash
 docker run -v $(pwd):/src secsi/getjs --input /src/targets.txt --complete --output /src/js_links && \
-katana -u targets.txt -ps -em js,json >> js_links # katana version 1.1.0
+katana -u targets.txt -ps -em js,json >> js_links # katana version 1.1.0 -> go install -v github.com/projectdiscovery/katana/cmd/katana@v1.1.0
 ```
 # Fast Info Gathering
 ```
@@ -174,7 +174,7 @@ nuclei -list katana.jsonl -im jsonl -ai "Check for error-based XXE via injected 
 ```
 # Host Header Injection
 ```
-nuclei -l targets.txt -ai "Detect Host Header Injection"
+nuclei -list targets.txt -ai "Detect Host Header Injection"
 nuclei -list targets.txt -ai "Test for web cache poisoning using manipulated Host headers"
 nuclei -list targets.txt -ai "Identify password reset or login bypass via spoofed Host headers"
 nuclei -list targets.txt -ai "Detect SSRF vectors triggered by altered Host headers"
