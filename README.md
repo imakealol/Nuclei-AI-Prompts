@@ -84,7 +84,6 @@ nuclei -list targets.txt -ai "Detect exposed .htaccess and .htpasswd files"
 nuclei -list targets.txt -ai "Check for SSH private keys leaked in web directories"
 nuclei -list targets.txt -ai "Find exposed API keys and secrets in responses and URLs"
 nuclei -list targets.txt -ai "Identify API endpoints leaking sensitive data"
-nuclei -list targets.txt -ai "Find leaked database credentials in JavaScript files"
 nuclei -list targets.txt -ai "Scan for hardcoded credentials in source code comments"
 nuclei -list targets.txt -ai "Identify sensitive endpoints leaking personal or internal data"
 nuclei -list targets.txt -ai "Detect vulnerable API endpoints exposing user input or sensitive information"
@@ -94,7 +93,7 @@ nuclei -list targets.txt -ai "Scan for information leaks in HTTP responses and h
 ```
 # Sensitive Data Exposure (Javascript Files)
 ```
-docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Analyze JavaScript code for security vulnerabilities (XSS, CSRF, SSRF, RCE, LFI, LFR, etc)"
+docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Find leaked database credentials in JavaScript files"
 docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Perform a full deep JavaScript security audit: API keys, secrets, internal endpoints, debug logs, authentication tokens, and misconfigurations"
 docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Find hardcoded API keys, JWT tokens, OAuth credentials, and authentication secrets in JavaScript"
 docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Identify hardcoded cloud service credentials (AWS, GCP, Azure) in JavaScript files"
@@ -106,6 +105,7 @@ docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "F
 docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Detect hardcoded JWT tokens and secrets in JavaScript files"
 docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Identify exposed payment API keys for Stripe, PayPal, and Square in JavaScript files"
 docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Find debugging logs, internal API endpoints, and test credentials in JavaScript"
+docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Analyze JavaScript code for security vulnerabilities (XSS, CSRF, SSRF, RCE, LFI, LFR, etc)"
 docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Detect corporate email addresses, internal contacts and internal resource in JavaScript files"
 docker run -v $(pwd):/src projectdiscovery/nuclei:latest -l /src/js_links -ai "Find exposed JavaScript source maps (.map files) revealing original source code"
 ```
